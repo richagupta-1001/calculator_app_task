@@ -1,22 +1,21 @@
 import React,{useState} from 'react';
+import * as math from 'mathjs'
 import './App.css';
 
 function App() {
-   const [result,setResult]=useState('')
+   const [result,setResult]=useState('');
    function handle(e){
     if(e.target.value === '.' && result.includes('.')) return;
-    setResult(result +e.target.value) 
+    setResult(result + e.target.value) 
    }
-  //  function calculate(){
-  //   try{
-  //     setResult(eval(result).toString())
-  //   }
-  //   catch{
-  //     setResult("Error");
-  //   }
-   
-
-  //  } 
+   function calculate(){
+    try{
+      setResult(math.evaluate(result).toString());
+   } 
+   catch{
+    setResult('Error');
+   }
+  }
    
    
   return (
@@ -48,7 +47,7 @@ function App() {
             <div>
             <input type="button" value="0" onClick={handle}/>
             <input type="button" value="." onClick={handle}/>
-            <input type="button" value="=" />
+            <input type="button" value="=" onClick={calculate}/>
             <input type="button" value="-" onClick={handle}/>
             </div>
             <div className="clear">
