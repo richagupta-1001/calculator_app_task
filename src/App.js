@@ -7,16 +7,16 @@ function App() {
     if(e.target.value === '.' && result.includes('.')) return;
     setResult(result +e.target.value) 
    }
-   function calculate(){
-    try{
-      setResult(eval(result).toString())
-    }
-    catch{
-      setResult("Error");
-    }
+  //  function calculate(){
+  //   try{
+  //     setResult(eval(result).toString())
+  //   }
+  //   catch{
+  //     setResult("Error");
+  //   }
    
 
-   } 
+  //  } 
    
    
   return (
@@ -48,7 +48,7 @@ function App() {
             <div>
             <input type="button" value="0" onClick={handle}/>
             <input type="button" value="." onClick={handle}/>
-            <input type="button" value="=" onClick={calculate}/>
+            <input type="button" value="=" />
             <input type="button" value="-" onClick={handle}/>
             </div>
             <div className="clear">
