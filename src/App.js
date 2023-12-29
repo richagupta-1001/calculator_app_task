@@ -4,8 +4,15 @@ import './App.css';
 
 function App() {
    const [result,setResult]=useState('');
-   function handle(e){
-    if(e.target.value === '.' && result.includes('.')) return;
+   const operations=['/','*','+','-','.']
+   const handle = e=>{
+    if((operations.includes(e.target.value) && result ==='' )||
+    (operations.includes(e.target.value) && operations.includes(result.slice(-1))
+    )
+    ){
+      return;
+    }
+
     setResult(result + e.target.value) 
    }
    function calculate(){
